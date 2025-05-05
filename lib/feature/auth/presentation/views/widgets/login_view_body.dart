@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 import '../../../../../core/common/custom_button.dart';
 import '../../../../../core/common/custom_text_form_field.dart';
 import '../../../../../core/constants/app_const.dart';
@@ -38,7 +37,7 @@ class LoginViewBody extends StatelessWidget {
                 keyboardType: TextInputType.visiblePassword,
                 hintText: 'Password',
                 suffixIcon: Padding(
-                  padding: EdgeInsets.only(left: 26.0),
+                  padding: EdgeInsets.only(right: 26.0),
                   child: Icon(
                     Icons.remove_red_eye,
                     size: 24,

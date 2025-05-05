@@ -5,7 +5,6 @@ import '../../../../../core/common/custom_text_form_field.dart';
 import '../../../../../core/constants/app_const.dart';
 import 'create_account_text.dart';
 
-
 class SignUpViewBody extends StatelessWidget {
   const SignUpViewBody({super.key});
 
@@ -36,7 +35,7 @@ class SignUpViewBody extends StatelessWidget {
               keyboardType: TextInputType.visiblePassword,
               isPasswordField: true,
               suffixIcon: Padding(
-                padding: EdgeInsets.only(left: 26.0),
+                padding: EdgeInsets.only(right: 26.0),
                 child: Icon(
                   Icons.remove_red_eye,
                   size: 24,

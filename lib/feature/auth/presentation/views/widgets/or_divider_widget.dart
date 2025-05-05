@@ -13,7 +13,7 @@ class OrDividerWidget extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 18),
           child: Text(
-            'أو',
+            'OR',
             textAlign: TextAlign.center,
             style: AppTextStyles.semiBold16,
           ),
