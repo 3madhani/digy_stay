@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../../../../../core/constants/app_const.dart';
 import '../../../../../core/services/shared_preferences_singleton.dart';
 import '../../../../auth/presentation/views/login_view.dart';
-import '../../../../onboarding/presentation/views/onboarding_view.dart';
+
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
