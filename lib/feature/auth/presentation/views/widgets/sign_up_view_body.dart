@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../../core/common/custom_button.dart';
 import '../../../../../core/common/custom_text_form_field.dart';
 import '../../../../../core/constants/app_const.dart';
+import '../../../../home/presentaion/views/home_view.dart';
 import 'create_account_text.dart';
 
 class SignUpViewBody extends StatelessWidget {
@@ -44,7 +45,9 @@ class SignUpViewBody extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 30),
-            CustomPrimaryButton(title: 'Create New Account', onPressed: () {}),
+            CustomPrimaryButton(title: 'Create New Account', onPressed: () {
+              Navigator.pushNamed(context, HomeView.routeName);
+            }),
             const SizedBox(height: 26),
             AccountCreationText(
               titleText: "Have an account? ",

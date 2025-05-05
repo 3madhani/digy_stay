@@ -1,3 +1,4 @@
+import 'package:digy_stay/feature/home/presentaion/views/home_view.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/common/custom_button.dart';
@@ -58,7 +59,9 @@ class LoginViewBody extends StatelessWidget {
               ),
               const SizedBox(height: 33),
 
-              CustomPrimaryButton(title: 'Login', onPressed: () {}),
+              CustomPrimaryButton(title: 'Login', onPressed: () {
+                Navigator.pushNamed(context, HomeView.routeName);
+              }),
               const SizedBox(height: 33),
 
               AccountCreationText(
@@ -78,11 +81,7 @@ class LoginViewBody extends StatelessWidget {
                 iconPath: Assets.svgGoogleIcons,
               ),
               const SizedBox(height: 16),
-              SocialLoginButton(
-                title: 'Login with Apple',
-                onPressed: () {},
-                iconPath: Assets.svgAppleIcons,
-              ),
+
               const SizedBox(height: 16),
               SocialLoginButton(
                 title: 'Login with Facebook',

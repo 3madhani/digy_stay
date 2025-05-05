@@ -1,3 +1,4 @@
+import 'package:digy_stay/feature/home/presentaion/views/home_view.dart';
 import 'package:flutter/material.dart';
 
 import '../../feature/auth/presentation/views/login_view.dart';
@@ -15,6 +16,8 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => const LoginView());
     case SignUpView.routeName:
       return MaterialPageRoute(builder: (_) => const SignUpView());
+    case HomeView.routeName:
+      return MaterialPageRoute(builder: (_) => const HomeView());
     default:
       return MaterialPageRoute(
         builder:
