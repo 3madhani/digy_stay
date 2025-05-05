@@ -74,6 +74,6 @@ class PageViewItem extends StatelessWidget {
 
   void _onSkip(BuildContext context) {
     Prefs.setBool(AppConst.isOnboardingViewSeenKey, true);
-    Navigator.of(context).pushReplacementNamed(LoginView.routeName);
+    Navigator.of(context).pushNamed(LoginView.routeName);
   }
 }

@@ -58,7 +58,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                   // Navigate to the next screen
                   Navigator.of(
                     context,
-                  ).pushReplacementNamed(LoginView.routeName);
+                  ).pushNamed(LoginView.routeName);
                 },
               ),
             ),

@@ -41,7 +41,9 @@ class FeatureCard extends StatelessWidget {
                 color: color,
                 borderRadius: BorderRadius.circular(12),
               ),
-              child: Center(child: LottieBuilder.asset(icon)),
+              child: Center(child: LottieBuilder.asset(icon,
+              
+              )),
             ),
           ),
           const SizedBox(height: 8),

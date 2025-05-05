@@ -24,8 +24,8 @@ class HomeViewBody extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           Text(
-            "Welcome back, John Doe!\nYour ultimate travel companion awaits.",
-            style: AppTextStyles.regular16.copyWith(
+            "Welcome back, John Doe!",
+            style: AppTextStyles.bold23.copyWith(
               color: AppColors.primaryLightColor,
               height: 1.5, // Adds nice line spacing
             ),
