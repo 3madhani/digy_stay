@@ -9,17 +9,17 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // Initialize shared preferences
   await Prefs.init();
-  runApp(const MainApp());
+  runApp(const DigyStay());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class DigyStay extends StatelessWidget {
+  const DigyStay({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        fontFamily: 'Roboto',
+        fontFamily: 'Poppins',
         scaffoldBackgroundColor: Colors.white,
         colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
       ),
