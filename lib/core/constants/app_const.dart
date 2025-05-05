@@ -1,6 +1,5 @@
-import 'package:iconsax/iconsax.dart';
-
 import '../../feature/home/presentaion/views/widgets/feature_item.dart';
+import '../utils/app_assets.dart';
 import '../utils/app_colors.dart';
 
 class AppConst {
@@ -8,24 +7,24 @@ class AppConst {
   static const String isOnboardingViewSeenKey = 'isOnboardingViewSeen';
 
   static const List<FeatureItem> featureItems = [
-    const FeatureItem(
-      color: AppColors.primaryColor,
-      icon: Iconsax.home,
+    FeatureItem(
+      color: AppColors.primaryLightColor,
+      lottie: Assets.lottiesHomeButton,
       title: 'Room Control',
     ),
-    const FeatureItem(
+    FeatureItem(
       color: AppColors.secondaryColor,
-      icon: Iconsax.discover,
-      title: 'Explore',
+      lottie: Assets.lottiesFoodServed,
+      title: 'Restaurant',
     ),
-    const FeatureItem(
+    FeatureItem(
       color: AppColors.secondaryColor,
-      icon: Iconsax.message,
-      title: 'Messages',
+      lottie: Assets.lottiesTexting,
+      title: 'Support Chat',
     ),
-    const FeatureItem(
-      color: AppColors.primaryColor,
-      icon: Iconsax.tag,
+    FeatureItem(
+      color: AppColors.primaryLightColor,
+      lottie: Assets.lottiesPriceTag,
       title: 'Offers',
     ),
   ];

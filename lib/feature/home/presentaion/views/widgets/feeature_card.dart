@@ -1,12 +1,13 @@
 import 'package:digy_stay/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../../../../core/utils/app_text_styles.dart';
 
 class FeatureCard extends StatelessWidget {
   final String title;
   final Color color;
-  final IconData icon;
+  final String icon;
 
   const FeatureCard({
     super.key,
@@ -39,7 +40,7 @@ class FeatureCard extends StatelessWidget {
                 color: color,
                 borderRadius: BorderRadius.circular(12),
               ),
-              child: Center(child: Icon(icon, size: 70, color: Colors.white)),
+              child: Center(child: LottieBuilder.asset(icon)),
             ),
           ),
           const SizedBox(height: 8),

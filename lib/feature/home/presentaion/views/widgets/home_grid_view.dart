@@ -22,7 +22,7 @@ class HomeGridView extends StatelessWidget {
         final item = AppConst.featureItems[index];
         return FeatureCard(
           color: item.color,
-          icon: item.icon,
+          icon: item.lottie,
           title: item.title,
         );
       },
