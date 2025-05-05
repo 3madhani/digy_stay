@@ -9,7 +9,7 @@ class SupportChatView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(context: context, title: 'Offers'),
+      appBar: buildAppBar(context: context, title: 'Support Chat'),
       body: const Center(child: Text('Support Chat View Body')),
     );
   }

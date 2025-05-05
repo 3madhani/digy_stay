@@ -1,6 +1,5 @@
 import 'package:digy_stay/feature/splash/presentaion/views/splash_view.dart';
 import 'package:flutter/material.dart';
-
 import 'core/helper/on_generate_routes.dart';
 import 'core/services/shared_preferences_singleton.dart';
 import 'core/utils/app_colors.dart';
