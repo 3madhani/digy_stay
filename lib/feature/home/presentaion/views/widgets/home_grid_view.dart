@@ -21,6 +21,7 @@ class HomeGridView extends StatelessWidget {
       itemBuilder: (context, index) {
         final item = AppConst.featureItems[index];
         return FeatureCard(
+          routeName: item.routeName,
           color: item.color,
           icon: item.lottie,
           title: item.title,

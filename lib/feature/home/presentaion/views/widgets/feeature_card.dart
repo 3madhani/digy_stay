@@ -8,12 +8,13 @@ class FeatureCard extends StatelessWidget {
   final String title;
   final Color color;
   final String icon;
+  final String routeName;
 
   const FeatureCard({
     super.key,
     required this.title,
     required this.color,
-    required this.icon,
+    required this.icon, required this.routeName,
   });
 
   @override
@@ -22,7 +23,7 @@ class FeatureCard extends StatelessWidget {
       splashColor: color.withOpacity(0.4),
       borderRadius: BorderRadius.circular(12),
       onTap: () {
-        debugPrint('Tapped on $title');
+        Navigator.pushNamed(context, routeName);
       },
       child: Column(
         mainAxisSize: MainAxisSize.min,
