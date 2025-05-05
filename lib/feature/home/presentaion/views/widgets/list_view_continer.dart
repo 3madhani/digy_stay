@@ -10,20 +10,28 @@ class ListViewContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width - 42,
+      margin: const EdgeInsets.symmetric(horizontal: 8),
+      width: MediaQuery.of(context).size.width * 0.85, // wider now
       decoration: BoxDecoration(
         color: AppColors.primaryLightColor,
         borderRadius: BorderRadius.circular(12),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 8,
+            offset: const Offset(0, 4),
+          ),
+        ],
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(Iconsax.setting, size: 70, color: AppColors.primaryColor),
+          Icon(Iconsax.setting, size: 70, color: Colors.white),
           const SizedBox(height: 16),
           Text(
             "Settings",
-            style: AppTextStyles.bold20.copyWith(color: AppColors.primaryColor),
+            style: AppTextStyles.bold20.copyWith(color: Colors.white),
           ),
         ],
       ),

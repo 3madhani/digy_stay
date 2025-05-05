@@ -3,8 +3,8 @@ import 'package:digy_stay/core/utils/app_colors.dart';
 import 'package:digy_stay/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
+import 'animate_horizental_list.dart';
 import 'home_grid_view.dart';
-import 'list_view_continer.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -38,19 +38,7 @@ class HomeViewBody extends StatelessWidget {
             thickness: 1,
           ),
           const SizedBox(height: 16),
-          Expanded(
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              physics: const BouncingScrollPhysics(),
-              children: [
-                ListViewContainer(),
-                const SizedBox(width: 16),
-                ListViewContainer(),
-                const SizedBox(width: 16),
-                ListViewContainer(),
-              ],
-            ),
-          ),
+          AnimatedHorizontalList(),
           const SizedBox(height: 24),
         ],
       ),
