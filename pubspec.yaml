@@ -26,12 +26,14 @@ flutter:
     - assets/svg/
 
   fonts:
-    - family: SF Proverbial Gothic
+    - family: SueEllenFrancisco
       fonts:
-        - asset: assets/fonts/SF Proverbial Gothic.ttf
+        - asset: assets/fonts/SueEllenFrancisco-Regular.ttf
 
 flutter_assets:
-  assets_path: assets/images/
+  assets_path:
+    - assets/images/
+    - assets/svg/
   output_path: lib/core/utils
   filename: app_assets.dart
   field_prefix: null

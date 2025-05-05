@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 import '../utils/app_text_styles.dart';
 
-
 class CustomPrimaryButton extends StatelessWidget {
   final String title;
   final VoidCallback onPressed;
@@ -17,7 +16,7 @@ class CustomPrimaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 54,
+      height: 60,
       child: ElevatedButton(
         style: ButtonStyle(
           elevation: const WidgetStatePropertyAll(1),
