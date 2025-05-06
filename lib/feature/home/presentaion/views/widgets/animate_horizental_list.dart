@@ -11,7 +11,7 @@ class AnimatedHorizontalList extends StatefulWidget {
 
 class _AnimatedHorizontalListState extends State<AnimatedHorizontalList> {
   final PageController _pageController = PageController(
-    viewportFraction: 0.9, // Increased from 0.8 to 0.9 for wider cards
+    viewportFraction: 0.97, // Increased from 0.8 to 0.9 for wider cards
   );
 
   @override
@@ -27,7 +27,7 @@ class _AnimatedHorizontalListState extends State<AnimatedHorizontalList> {
               double value = 1.0;
               if (_pageController.position.haveDimensions) {
                 value = _pageController.page! - index;
-                value = (1 - (value.abs() * 0.7)).clamp(0.0, 1.0);
+                value = (1 - (value.abs() * 0.9)).clamp(0.0, 1.0);
               }
 
               return Transform.scale(

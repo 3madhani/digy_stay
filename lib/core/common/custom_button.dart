@@ -28,7 +28,7 @@ class CustomPrimaryButton extends StatelessWidget {
         onPressed: onPressed,
         child: Text(
           title,
-          style: AppTextStyles.bold16.copyWith(color: Colors.white),
+          style: AppTextStyles.bold19.copyWith(color: Colors.white),
         ),
       ),
     );

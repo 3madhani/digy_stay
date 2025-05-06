@@ -10,7 +10,7 @@ class ListViewContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 8),
+      margin: const EdgeInsets.symmetric(horizontal: 10),
       width: MediaQuery.of(context).size.width * 0.85, // wider now
       decoration: BoxDecoration(
         color: AppColors.primaryLightColor,

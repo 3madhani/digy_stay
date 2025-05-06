@@ -30,15 +30,23 @@ class HomeViewBody extends StatelessWidget {
               height: 1.5, // Adds nice line spacing
             ),
           ),
-          const SizedBox(height: 24),
-          HomeGridView(),
-          const SizedBox(height: 24),
+
+          const SizedBox(height: 10),
           Divider(
             color: AppColors.primaryLightColor.withOpacity(0.5),
             thickness: 1,
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 10),
           AnimatedHorizontalList(),
+          const SizedBox(height: 10),
+          Divider(
+            color: AppColors.primaryLightColor.withOpacity(0.5),
+            thickness: 1,
+          ),
+
+          const SizedBox(height: 24),
+
+          HomeGridView(),
           const SizedBox(height: 24),
         ],
       ),
