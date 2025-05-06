@@ -13,24 +13,6 @@ class _TvControlState extends State<TvControl> {
   bool isOn = true;
   int volume = 50;
 
-  void togglePower() {
-    setState(() {
-      isOn = !isOn;
-    });
-  }
-
-  void volumeUp() {
-    setState(() {
-      if (volume < 100) volume += 10;
-    });
-  }
-
-  void volumeDown() {
-    setState(() {
-      if (volume > 0) volume -= 10;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -50,15 +32,55 @@ class _TvControlState extends State<TvControl> {
         SizedBox(height: 10),
 
         // Show status
-        Text(
-          isOn ? 'TV is On' : 'TV is Off',
-          style: AppTextStyles.semiBold20.copyWith(color: Colors.grey),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'TV is ',
+              style: AppTextStyles.semiBold20.copyWith(color: Colors.grey),
+            ),
+            Text(
+              isOn ? 'On' : 'Off',
+              style: AppTextStyles.semiBold20.copyWith(
+                color: Theme.of(context).colorScheme.primary,
+              ),
+            ),
+          ],
         ),
-        Text(
-          'Volume: $volume',
-          style: AppTextStyles.semiBold20.copyWith(color: Colors.grey),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Volume: ',
+              style: AppTextStyles.semiBold20.copyWith(color: Colors.grey),
+            ),
+            Text(
+              '$volume',
+              style: AppTextStyles.semiBold20.copyWith(
+                color: Theme.of(context).colorScheme.primary,
+              ),
+            ),
+          ],
         ),
       ],
     );
+  }
+
+  void togglePower() {
+    setState(() {
+      isOn = !isOn;
+    });
+  }
+
+  void volumeDown() {
+    setState(() {
+      if (volume > 0) volume -= 10;
+    });
+  }
+
+  void volumeUp() {
+    setState(() {
+      if (volume < 100) volume += 10;
+    });
   }
 }

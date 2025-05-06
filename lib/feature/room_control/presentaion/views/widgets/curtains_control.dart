@@ -34,9 +34,20 @@ class _CurtainsControlState extends State<CurtainsControl> {
         SizedBox(height: 10),
 
         // Status Text
-        Text(
-          isOpen ? 'Curtains are Open' : 'Curtains are Closed',
-          style: AppTextStyles.semiBold20.copyWith(color: Colors.grey),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Curtains are ',
+              style: AppTextStyles.semiBold20.copyWith(color: Colors.grey),
+            ),
+            Text(
+              isOpen ? 'Open' : 'Closed',
+              style: AppTextStyles.semiBold20.copyWith(
+                color: Theme.of(context).colorScheme.primary,
+              ),
+            ),
+          ],
         ),
         SizedBox(height: 20),
       ],

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import '../../../../../core/common/custom_button.dart';
 import '../../../../../core/constants/app_const.dart';
 import '../../../../../core/services/shared_preferences_singleton.dart';
-import '../../../../../core/utils/app_colors.dart';
 import '../../../../auth/presentation/views/login_view.dart';
 import 'on_boarding_page_view.dart';
 
@@ -31,12 +30,12 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
           DotsIndicator(
             dotsCount: 2,
             decorator: DotsDecorator(
-              activeColor: AppColors.primaryColor,
+              activeColor: Theme.of(context).colorScheme.primary,
               activeSize: const Size(15, 15),
               color:
                   _currentPage == 1
-                      ? AppColors.primaryColor
-                      : AppColors.primaryColor.withOpacity(0.5),
+                      ? Theme.of(context).colorScheme.primary
+                      : Theme.of(context).colorScheme.primary.withOpacity(0.5),
               size: _currentPage == 1 ? const Size(15, 15) : const Size(12, 12),
             ),
           ),
@@ -51,15 +50,13 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                 horizontal: AppConst.horizontalPadding,
               ),
               child: CustomPrimaryButton(
-                color: Theme.of(context).colorScheme.primary,
+                // color: Theme.of(context).colorScheme.primary,
                 title: "Get Started",
                 onPressed: () {
                   // Save the onboarding view seen status
                   Prefs.setBool(AppConst.isOnboardingViewSeenKey, true);
                   // Navigate to the next screen
-                  Navigator.of(
-                    context,
-                  ).pushNamed(LoginView.routeName);
+                  Navigator.of(context).pushNamed(LoginView.routeName);
                 },
               ),
             ),

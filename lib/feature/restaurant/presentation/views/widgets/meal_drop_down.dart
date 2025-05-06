@@ -1,4 +1,3 @@
-import 'package:digy_stay/core/utils/app_colors.dart';
 import 'package:digy_stay/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
@@ -30,34 +29,37 @@ class _ItemDropdownListState extends State<ItemDropdownList> {
       width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 12),
       decoration: BoxDecoration(
-        border: Border.all(
-          color:
-              isDark
-                  ? colorScheme.onSurface.withOpacity(
-                    0.6,
-                  ) // Light border in dark mode
-                  : AppColors.primaryLightColor, // Dark border in light mode
-          width: 1.5,
-        ),
+        border: Border.all(color: colorScheme.secondary, width: 1.5),
         borderRadius: BorderRadius.circular(12),
       ),
       child: DropdownButtonHideUnderline(
         child: DropdownButton<String>(
-          borderRadius: BorderRadius.circular(12),
-          value: selectedMeal, // Use the local state variable here
+          elevation: 6,
+          borderRadius: BorderRadius.circular(12), // For the popup border
+          dropdownColor: isDark ? Colors.grey[900] : Colors.white,
+          value: selectedMeal,
+          icon: Icon(
+            Iconsax.arrow_down_1,
+            color: colorScheme.onSurface,
+            size: 30,
+          ),
           items:
               widget.items.map((String item) {
                 return DropdownMenuItem<String>(
                   value: item,
-                  child: Text(
-                    item,
-                    style: AppTextStyles.semiBold20.copyWith(
-                      color:
-                          isDark
-                              ? colorScheme
-                                  .onSurface // Light text in dark mode
-                              : AppColors
-                                  .primaryColor, // Dark text in light mode
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 8,
+                      vertical: 8,
+                    ),
+                    child: Text(
+                      item,
+                      style: AppTextStyles.semiBold20.copyWith(
+                        color: colorScheme.onSurface,
+                      ),
                     ),
                   ),
                 );
@@ -67,11 +69,6 @@ class _ItemDropdownListState extends State<ItemDropdownList> {
               selectedMeal = newValue!;
             });
           },
-          icon: Icon(
-            Iconsax.arrow_down_1,
-            color: isDark ? colorScheme.onSurface : AppColors.primaryColor,
-            size: 30,
-          ),
         ),
       ),
     );

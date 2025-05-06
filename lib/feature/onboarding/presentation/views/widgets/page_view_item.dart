@@ -3,7 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../../core/constants/app_const.dart';
 import '../../../../../core/services/shared_preferences_singleton.dart';
-import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../auth/presentation/views/login_view.dart';
 
@@ -36,13 +35,13 @@ class PageViewItem extends StatelessWidget {
                   Text(
                     'Skip',
                     style: AppTextStyles.semiBold24.copyWith(
-                      color: AppColors.secondaryTextColor,
+                      color: Theme.of(context).colorScheme.secondary,
                     ),
                   ),
                   const SizedBox(width: 4),
                   Icon(
                     Icons.arrow_forward_ios,
-                    color: AppColors.secondaryTextColor,
+                    color: Theme.of(context).colorScheme.secondary,
                     size: 18,
                   ),
                 ],

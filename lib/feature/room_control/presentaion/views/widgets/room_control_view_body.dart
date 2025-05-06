@@ -81,7 +81,7 @@ class RoomControlViewBody extends StatelessWidget {
               child: Text(
                 "Back",
                 style: AppTextStyles.bold23.copyWith(
-                  color: isDark ? Colors.white : AppColors.primaryColor,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
               ),
             ),

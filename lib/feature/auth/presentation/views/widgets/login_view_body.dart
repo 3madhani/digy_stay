@@ -63,7 +63,6 @@ class LoginViewBody extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushNamed(context, HomeView.routeName);
                 },
-                color: Theme.of(context).colorScheme.primary,
               ),
               const SizedBox(height: 33),
 

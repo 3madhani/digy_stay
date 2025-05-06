@@ -36,8 +36,8 @@ class RestaurantViewBody extends StatelessWidget {
                           colorScheme.secondary,
                         ] // Dark gradient
                         : [
-                          Color(0xFF4A90E2),
-                          Color(0xFF50E3C2),
+                          colorScheme.primary,
+                          colorScheme.secondary,
                         ], // Light gradient
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -67,14 +67,14 @@ class RestaurantViewBody extends StatelessWidget {
           Text(
             "Meal Type",
             style: AppTextStyles.semiBold24.copyWith(
-              color: isDark ? colorScheme.onSurface : colorScheme.primary,
+              color: colorScheme.onSurface,
             ),
           ),
           const SizedBox(height: 5),
 
           // Meal Dropdown
           ItemDropdownList(
-            items: const ["Breakfast", "Lunch", "Dinner", "Brunch", "Snack"],
+            items: const ["Breakfast", "Lunch", "Dinner", "Snack"],
             selectedItem: "Breakfast",
           ),
 
@@ -84,7 +84,7 @@ class RestaurantViewBody extends StatelessWidget {
           Text(
             "Guests",
             style: AppTextStyles.semiBold24.copyWith(
-              color: isDark ? colorScheme.onSurface : colorScheme.primary,
+              color: colorScheme.onSurface,
             ),
           ),
           const SizedBox(height: 5),
@@ -98,11 +98,7 @@ class RestaurantViewBody extends StatelessWidget {
           const SizedBox(height: 60),
 
           // Confirm Button
-          CustomPrimaryButton(
-            onPressed: () {},
-            title: "Confirm Booking",
-            color: Theme.of(context).colorScheme.primary,
-          ),
+          CustomPrimaryButton(onPressed: () {}, title: "Confirm Booking"),
         ],
       ),
     );

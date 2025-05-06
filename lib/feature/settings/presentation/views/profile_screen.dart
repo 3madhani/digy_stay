@@ -65,7 +65,6 @@ class ProfileScreen extends StatelessWidget {
 
                     // Save Button
                     CustomPrimaryButton(
-                      color: Theme.of(context).colorScheme.primary,
                       title: 'Save',
                       onPressed: viewModel.saveProfile,
                     ),

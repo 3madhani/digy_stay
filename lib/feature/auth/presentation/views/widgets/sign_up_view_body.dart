@@ -48,7 +48,6 @@ class SignUpViewBody extends StatelessWidget {
             CustomPrimaryButton(title: 'Create New Account', onPressed: () {
               Navigator.pushNamed(context, HomeView.routeName);
             },
-            color: Theme.of(context).colorScheme.primary,
             ),
             const SizedBox(height: 26),
             AccountCreationText(
