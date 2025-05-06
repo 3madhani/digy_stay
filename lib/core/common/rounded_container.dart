@@ -4,14 +4,22 @@ import 'package:flutter/material.dart';
 import '../utils/app_colors.dart';
 
 class RoundedContainer extends StatelessWidget {
-  const RoundedContainer({super.key, required this.title, required this.iconData, this.onTap});
-
   final String title;
+
   final IconData iconData;
   final Function(BuildContext)? onTap;
+  const RoundedContainer({
+    super.key,
+    required this.title,
+    required this.iconData,
+    this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final colorScheme = Theme.of(context).colorScheme;
+
     return GestureDetector(
       onTap: () => onTap?.call(context),
       child: Column(
@@ -21,15 +29,21 @@ class RoundedContainer extends StatelessWidget {
             height: 120,
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              gradient: const LinearGradient(
-                colors: [Color(0xFF4A90E2), Color(0xFF50E3C2)],
+              gradient: LinearGradient(
+                colors:
+                    isDark
+                        ? [colorScheme.secondary, colorScheme.primary]
+                        : [colorScheme.secondary, colorScheme.primary],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ),
               borderRadius: BorderRadius.circular(100),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
+                  color:
+                      isDark
+                          ? Colors.white.withOpacity(0.2)
+                          : Colors.black.withOpacity(0.1),
                   blurRadius: 10,
                   offset: const Offset(0, 4),
                 ),
@@ -41,7 +55,7 @@ class RoundedContainer extends StatelessWidget {
           Text(
             title,
             style: AppTextStyles.semiBold24.copyWith(
-              color: AppColors.primaryColor,
+              color: isDark ? Colors.white : AppColors.primaryColor,
             ),
           ),
         ],

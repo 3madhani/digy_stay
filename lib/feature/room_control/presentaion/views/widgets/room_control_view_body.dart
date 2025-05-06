@@ -2,7 +2,7 @@ import 'package:digy_stay/core/constants/app_const.dart';
 import 'package:digy_stay/core/utils/app_colors.dart';
 import 'package:digy_stay/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../../core/utils/app_assets.dart';
 
@@ -11,6 +11,9 @@ class RoomControlViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: AppConst.horizontalPadding,
@@ -19,6 +22,8 @@ class RoomControlViewBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const SizedBox(height: 40),
+
+          // Top Banner
           Container(
             width: double.infinity,
             height: 230,
@@ -27,9 +32,8 @@ class RoomControlViewBody extends StatelessWidget {
               gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
-                colors: [Color(0xFF4A90E2), Color(0xFF50E3C2)],
+                colors: [colorScheme.secondary, colorScheme.primary],
               ),
-
               borderRadius: BorderRadius.circular(24),
               boxShadow: [
                 BoxShadow(
@@ -41,7 +45,10 @@ class RoomControlViewBody extends StatelessWidget {
             ),
             child: SvgPicture.asset(Assets.svgRoomControl, fit: BoxFit.cover),
           ),
+
           const SizedBox(height: 30),
+
+          // Room Items
           GridView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
@@ -54,7 +61,10 @@ class RoomControlViewBody extends StatelessWidget {
             itemCount: AppConst.roomItems.length,
             itemBuilder: (context, index) => AppConst.roomItems[index],
           ),
+
           const SizedBox(height: 30),
+
+          // Back Button
           SizedBox(
             width: double.infinity,
             height: 60,
@@ -65,13 +75,13 @@ class RoomControlViewBody extends StatelessWidget {
               style: OutlinedButton.styleFrom(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(24),
-                  side: BorderSide(color: Color(0xFF50E3C2), width: 2),
+                  side: BorderSide(color: colorScheme.secondary, width: 2),
                 ),
               ),
               child: Text(
                 "Back",
                 style: AppTextStyles.bold23.copyWith(
-                  color: AppColors.primaryColor,
+                  color: isDark ? Colors.white : AppColors.primaryColor,
                 ),
               ),
             ),

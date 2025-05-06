@@ -51,6 +51,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                 horizontal: AppConst.horizontalPadding,
               ),
               child: CustomPrimaryButton(
+                color: Theme.of(context).colorScheme.primary,
                 title: "Get Started",
                 onPressed: () {
                   // Save the onboarding view seen status

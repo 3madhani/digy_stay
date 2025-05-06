@@ -14,7 +14,8 @@ class FeatureCard extends StatelessWidget {
     super.key,
     required this.title,
     required this.color,
-    required this.icon, required this.routeName,
+    required this.icon,
+    required this.routeName,
   });
 
   @override
@@ -28,29 +29,32 @@ class FeatureCard extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Card(
-            elevation: 6,
-            shadowColor: color.withOpacity(0.9),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Container(
-              width: 170,
-              height: 170,
-              decoration: BoxDecoration(
-                color: color,
+          SizedBox(
+            width: 170,
+            height: 170,
+            child: Card(
+              color: color,
+              elevation: 6,
+              shadowColor:
+                  Theme.of(context).brightness == Brightness.dark
+                      ? Colors.white.withOpacity(0.3)
+                      : color.withOpacity(0.9),
+              shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),
               ),
-              child: Center(child: LottieBuilder.asset(icon,
-              
-              )),
+              child: Center(child: LottieBuilder.asset(icon)),
             ),
           ),
           const SizedBox(height: 8),
           Text(
             title,
             textAlign: TextAlign.center,
-            style: AppTextStyles.bold20.copyWith(color: AppColors.primaryColor),
+            style: AppTextStyles.bold20.copyWith(
+              color:
+                  Theme.of(context).brightness == Brightness.dark
+                      ? Colors.white
+                      : AppColors.primaryColor,
+            ),
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
           ),

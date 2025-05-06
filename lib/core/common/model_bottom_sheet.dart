@@ -1,6 +1,8 @@
 import 'package:digy_stay/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../feature/room_control/presentaion/view_model/light_ac_view_model.dart';
 import '../../feature/room_control/presentaion/views/widgets/curtains_control.dart';
 import '../../feature/room_control/presentaion/views/widgets/light_ac_control.dart';
 import '../../feature/room_control/presentaion/views/widgets/tv_control.dart';
@@ -22,7 +24,10 @@ void showControlSheet(BuildContext context, String device) {
 
             // Light & AC Controls
             if (device == "Light" || device == "AC")
-              LightAcControl(device: device),
+              ChangeNotifierProvider(
+                create: (_) => LightAcControlViewModel(),
+                child: LightAcControl(device: device),
+              ),
 
             // Curtains Control
             if (device == "Curtains") CurtainsControl(),

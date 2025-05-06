@@ -22,12 +22,23 @@ class _ItemDropdownListState extends State<ItemDropdownList> {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Container(
       height: 65,
       width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 12),
       decoration: BoxDecoration(
-        border: Border.all(color: AppColors.primaryLightColor, width: 1.5),
+        border: Border.all(
+          color:
+              isDark
+                  ? colorScheme.onSurface.withOpacity(
+                    0.6,
+                  ) // Light border in dark mode
+                  : AppColors.primaryLightColor, // Dark border in light mode
+          width: 1.5,
+        ),
         borderRadius: BorderRadius.circular(12),
       ),
       child: DropdownButtonHideUnderline(
@@ -41,7 +52,12 @@ class _ItemDropdownListState extends State<ItemDropdownList> {
                   child: Text(
                     item,
                     style: AppTextStyles.semiBold20.copyWith(
-                      color: AppColors.primaryColor,
+                      color:
+                          isDark
+                              ? colorScheme
+                                  .onSurface // Light text in dark mode
+                              : AppColors
+                                  .primaryColor, // Dark text in light mode
                     ),
                   ),
                 );
@@ -53,7 +69,7 @@ class _ItemDropdownListState extends State<ItemDropdownList> {
           },
           icon: Icon(
             Iconsax.arrow_down_1,
-            color: AppColors.primaryColor,
+            color: isDark ? colorScheme.onSurface : AppColors.primaryColor,
             size: 30,
           ),
         ),

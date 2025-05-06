@@ -1,4 +1,3 @@
-import 'package:digy_stay/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/app_text_styles.dart';
@@ -6,10 +5,12 @@ import '../utils/app_text_styles.dart';
 class CustomPrimaryButton extends StatelessWidget {
   final String title;
   final VoidCallback onPressed;
+  final Color color;
   const CustomPrimaryButton({
     super.key,
     required this.title,
     required this.onPressed,
+    required this.color,
   });
 
   @override
@@ -19,16 +20,18 @@ class CustomPrimaryButton extends StatelessWidget {
       height: 60,
       child: ElevatedButton(
         style: ButtonStyle(
-          elevation: const WidgetStatePropertyAll(1),
+          elevation: const WidgetStatePropertyAll(3),
           shape: WidgetStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
           ),
-          backgroundColor: WidgetStateProperty.all(AppColors.primaryColor),
+          backgroundColor: WidgetStateProperty.all(color),
         ),
         onPressed: onPressed,
         child: Text(
           title,
-          style: AppTextStyles.bold19.copyWith(color: Colors.white),
+          style: AppTextStyles.bold19.copyWith(
+            color: Theme.of(context).colorScheme.onPrimary,
+          ),
         ),
       ),
     );

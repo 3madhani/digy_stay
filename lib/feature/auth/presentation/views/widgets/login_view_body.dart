@@ -5,7 +5,6 @@ import '../../../../../core/common/custom_button.dart';
 import '../../../../../core/common/custom_text_form_field.dart';
 import '../../../../../core/constants/app_const.dart';
 import '../../../../../core/utils/app_assets.dart';
-import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../sign_up_view.dart';
 import 'create_account_text.dart';
@@ -53,15 +52,19 @@ class LoginViewBody extends StatelessWidget {
                 child: Text(
                   "Forgot Password?",
                   style: AppTextStyles.semiBold13.copyWith(
-                    color: AppColors.primaryLightColor,
+                    color: Theme.of(context).colorScheme.primary,
                   ),
                 ),
               ),
               const SizedBox(height: 33),
 
-              CustomPrimaryButton(title: 'Login', onPressed: () {
-                Navigator.pushNamed(context, HomeView.routeName);
-              }),
+              CustomPrimaryButton(
+                title: 'Login',
+                onPressed: () {
+                  Navigator.pushNamed(context, HomeView.routeName);
+                },
+                color: Theme.of(context).colorScheme.primary,
+              ),
               const SizedBox(height: 33),
 
               AccountCreationText(

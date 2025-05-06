@@ -1,5 +1,4 @@
 import 'package:digy_stay/core/constants/app_const.dart';
-import 'package:digy_stay/core/utils/app_colors.dart';
 import 'package:digy_stay/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
@@ -21,20 +20,26 @@ class HomeViewBody extends StatelessWidget {
           Text(
             "Digy Stay",
             style: AppTextStyles.bold28.copyWith(
-              color: AppColors.primaryColor,
+              color: Theme.of(context).colorScheme.primary,
               fontSize: 30,
             ),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 14),
           Divider(
-            color: AppColors.primaryLightColor.withOpacity(0.5),
+            color:
+                Theme.of(context).brightness == Brightness.dark
+                    ? Colors.white
+                    : Theme.of(context).colorScheme.primary,
             thickness: 1,
           ),
           const SizedBox(height: 10),
           AnimatedHorizontalList(),
           const SizedBox(height: 10),
           Divider(
-            color: AppColors.primaryLightColor.withOpacity(0.5),
+            color:
+                Theme.of(context).brightness == Brightness.dark
+                    ? Colors.white
+                    : Theme.of(context).colorScheme.primary,
             thickness: 1,
           ),
 

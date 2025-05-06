@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import '../../feature/auth/presentation/views/login_view.dart';
 import '../../feature/auth/presentation/views/sign_up_view.dart';
 import '../../feature/onboarding/presentation/views/onboarding_view.dart';
+import '../../feature/settings/presentation/views/settings_screen.dart';
 import '../../feature/splash/presentaion/views/splash_view.dart';
 
 Route<dynamic> onGenerateRoute(RouteSettings settings) {
@@ -30,6 +31,8 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => const SupportChatView());
     case OffersView.routeName:
       return MaterialPageRoute(builder: (_) => const OffersView());
+    case SettingsScreen.routeName:
+      return MaterialPageRoute(builder: (_) => const SettingsScreen());
     default:
       return MaterialPageRoute(
         builder:

@@ -1,73 +1,87 @@
 import 'package:digy_stay/core/constants/app_const.dart';
+import 'package:digy_stay/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:syncfusion_flutter_sliders/sliders.dart';
 
-import '../../../../../core/utils/app_text_styles.dart';
+import '../../view_model/light_ac_view_model.dart'; // 🌟 NEW: Syncfusion slider
 
-class LightAcControl extends StatefulWidget {
-  final String device;
+
+class LightAcControl extends StatelessWidget {
+  final String device; // "Light" or "AC"
   const LightAcControl({super.key, required this.device});
 
   @override
-  State<LightAcControl> createState() => _LightAcControlState();
-}
-
-class _LightAcControlState extends State<LightAcControl> {
-  bool isPowerOn = true;
-  double sliderValue = 50;
-
-  @override
   Widget build(BuildContext context) {
+    final viewModel = Provider.of<LightAcControlViewModel>(context);
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final isLightDevice = device == "Light";
+
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: AppConst.horizontalPadding,
       ),
       child: Column(
         children: [
-          // Power Switch
+          // Power Switch Row
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text('Power', style: AppTextStyles.semiBold20),
               Switch(
-                value: isPowerOn,
-                onChanged: (val) {
-                  setState(() {
-                    isPowerOn = val;
-                  });
-                },
+                value: viewModel.isPowerOn,
+                onChanged: viewModel.togglePower,
               ),
             ],
           ),
-          SizedBox(height: 20),
 
-          // Label and Value in Row
+          const SizedBox(height: 20),
+
+          // Label
           Text(
-            widget.device == "Light" ? "Brightness" : "Temperature",
+            isLightDevice ? "Brightness" : "Temperature",
             style: AppTextStyles.semiBold20,
           ),
 
-          // Slider
-          Row(
-            children: [
-              Expanded(
-                child: Slider(
-                  value: sliderValue,
-                  min: 0,
-                  max: 100,
-                  onChanged: (val) {
-                    setState(() {
-                      sliderValue = val;
-                    });
-                  },
-                ),
-              ),
-              Text(
-                '${sliderValue.toInt()}',
-                style: AppTextStyles.semiBold20.copyWith(
-                  color: sliderValue == 0 ? Colors.grey : Colors.black,
-                ),
-              ),
-            ],
+          // 🌟 Fancy Syncfusion Slider
+          SfSlider(
+            value: viewModel.sliderValue,
+            min: 0.0,
+            max: 100.0,
+            interval: 20,
+            showTicks: true,
+            showLabels: true,
+            enableTooltip: true,
+            activeColor:
+                isLightDevice
+                    ? Colors
+                        .amber // 🌞 Brightness color
+                    : Colors.blue, // 🌊 Temp color
+            inactiveColor: Colors.grey.shade300,
+            onChanged: viewModel.changeSlider,
+            tooltipTextFormatterCallback: (
+              dynamic actualValue,
+              String formattedText,
+            ) {
+              return isLightDevice
+                  ? '${actualValue.toInt()}%'
+                  : '${actualValue.toInt()}°C';
+            },
+          ),
+
+          // Value Label
+          Text(
+            isLightDevice
+                ? '${viewModel.sliderValue.toInt()}%'
+                : '${viewModel.sliderValue.toInt()}°C',
+            style: AppTextStyles.semiBold20.copyWith(
+              color:
+                  viewModel.sliderValue == 0
+                      ? Colors.grey
+                      : isDark
+                      ? Colors.white
+                      : Colors.black,
+            ),
           ),
         ],
       ),

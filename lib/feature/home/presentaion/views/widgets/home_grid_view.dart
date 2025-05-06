@@ -15,14 +15,14 @@ class HomeGridView extends StatelessWidget {
         crossAxisCount: 2,
         crossAxisSpacing: 16,
         mainAxisSpacing: 16,
-        childAspectRatio: 0.82, // 👈 make cell taller to prevent overflow
+        childAspectRatio: 0.82,
       ),
       itemCount: AppConst.featureItems.length,
       itemBuilder: (context, index) {
         final item = AppConst.featureItems[index];
         return FeatureCard(
-          routeName: item.routeName,
           color: item.color,
+          routeName: item.routeName,
           icon: item.lottie,
           title: item.title,
         );
