@@ -6,6 +6,7 @@ import '../../feature/offers/presentation/views/offers_view.dart';
 import '../../feature/restaurant/presentation/views/restaurant_view.dart';
 import '../../feature/room_control/presentaion/views/room_control_view.dart';
 import '../../feature/support_chat/presentation/views/support_chat_view.dart';
+import '../common/model_bottom_sheet.dart';
 import '../utils/app_assets.dart';
 import '../utils/app_colors.dart';
 
@@ -41,9 +42,25 @@ class AppConst {
   ];
 
   static List<Widget> roomItems = [
-    RoundedContainer(title: "Light", iconData: Icons.lightbulb),
-    RoundedContainer(title: "AC", iconData: Icons.ac_unit),
-    RoundedContainer(title: "Curtains", iconData: Icons.curtains),
-    RoundedContainer(title: "TV", iconData: Icons.tv),
+    RoundedContainer(
+      title: "Light",
+      iconData: Icons.lightbulb,
+      onTap: (context) => showControlSheet(context, "Light"),
+    ),
+    RoundedContainer(
+      title: "AC",
+      iconData: Icons.ac_unit,
+      onTap: (context) => showControlSheet(context, "AC"),
+    ),
+    RoundedContainer(
+      title: "Curtains",
+      iconData: Icons.curtains,
+      onTap: (context) => showControlSheet(context, "Curtains"),
+    ),
+    RoundedContainer(
+      title: "TV",
+      iconData: Icons.tv,
+      onTap: (context) => showControlSheet(context, "TV"),
+    ),
   ];
 }

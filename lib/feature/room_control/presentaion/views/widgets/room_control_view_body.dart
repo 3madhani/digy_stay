@@ -58,14 +58,14 @@ class RoomControlViewBody extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             height: 60,
-            child: OutlinedButton(
+            child: TextButton(
               onPressed: () {
                 Navigator.pop(context);
               },
               style: OutlinedButton.styleFrom(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(24),
-                  side: BorderSide(color: AppColors.primaryColor),
+                  side: BorderSide(color: Color(0xFF50E3C2), width: 2),
                 ),
               ),
               child: Text(
