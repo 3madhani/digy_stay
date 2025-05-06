@@ -1,20 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 
 import '../../../../../core/utils/app_colors.dart';
-import '../../../../../core/utils/app_text_styles.dart';
 
 class ListViewContainer extends StatelessWidget {
-  const ListViewContainer({super.key});
+  final Widget title;
+  final Widget icon;
+  const ListViewContainer({super.key, required this.title, required this.icon});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       width: MediaQuery.of(context).size.width * 0.85, // wider now
       decoration: BoxDecoration(
-        color: AppColors.primaryLightColor,
-        borderRadius: BorderRadius.circular(12),
+        gradient: LinearGradient(
+          colors: [
+            AppColors.primaryColor,
+            AppColors.primaryLightColor,
+            AppColors.secondaryColor,
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
@@ -23,17 +31,10 @@ class ListViewContainer extends StatelessWidget {
           ),
         ],
       ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(Iconsax.setting, size: 70, color: Colors.white),
-          const SizedBox(height: 16),
-          Text(
-            "Settings",
-            style: AppTextStyles.bold20.copyWith(color: Colors.white),
-          ),
-        ],
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [icon, const SizedBox(width: 10), title],
       ),
     );
   }

@@ -23,6 +23,7 @@ class _ItemDropdownListState extends State<ItemDropdownList> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 65,
       width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 12),
       decoration: BoxDecoration(
@@ -39,7 +40,7 @@ class _ItemDropdownListState extends State<ItemDropdownList> {
                   value: item,
                   child: Text(
                     item,
-                    style: AppTextStyles.semiBold16.copyWith(
+                    style: AppTextStyles.semiBold20.copyWith(
                       color: AppColors.primaryColor,
                     ),
                   ),
@@ -50,7 +51,11 @@ class _ItemDropdownListState extends State<ItemDropdownList> {
               selectedMeal = newValue!;
             });
           },
-          icon: Icon(Iconsax.arrow_down, color: AppColors.primaryColor),
+          icon: Icon(
+            Iconsax.arrow_down_1,
+            color: AppColors.primaryColor,
+            size: 30,
+          ),
         ),
       ),
     );

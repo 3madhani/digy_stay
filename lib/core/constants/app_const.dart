@@ -1,3 +1,6 @@
+import 'package:digy_stay/core/common/rounded_container.dart';
+import 'package:flutter/material.dart';
+
 import '../../feature/home/presentaion/views/widgets/feature_item.dart';
 import '../../feature/offers/presentation/views/offers_view.dart';
 import '../../feature/restaurant/presentation/views/restaurant_view.dart';
@@ -35,5 +38,12 @@ class AppConst {
       lottie: Assets.lottiesPriceTag,
       title: 'Offers',
     ),
+  ];
+
+  static List<Widget> roomItems = [
+    RoundedContainer(title: "Light", iconData: Icons.lightbulb),
+    RoundedContainer(title: "AC", iconData: Icons.ac_unit),
+    RoundedContainer(title: "Curtains", iconData: Icons.curtains),
+    RoundedContainer(title: "TV", iconData: Icons.tv),
   ];
 }

@@ -20,18 +20,12 @@ class HomeViewBody extends StatelessWidget {
         children: [
           Text(
             "Digy Stay",
-            style: AppTextStyles.bold28.copyWith(color: AppColors.primaryColor),
-          ),
-          const SizedBox(height: 16),
-          Text(
-            "Welcome back, John Doe!",
-            style: AppTextStyles.bold23.copyWith(
-              color: AppColors.primaryLightColor,
-              height: 1.5, // Adds nice line spacing
+            style: AppTextStyles.bold28.copyWith(
+              color: AppColors.primaryColor,
+              fontSize: 30,
             ),
           ),
-
-          const SizedBox(height: 10),
+          const SizedBox(height: 16),
           Divider(
             color: AppColors.primaryLightColor.withOpacity(0.5),
             thickness: 1,
@@ -47,7 +41,7 @@ class HomeViewBody extends StatelessWidget {
           const SizedBox(height: 24),
 
           HomeGridView(),
-          const SizedBox(height: 24),
+          const SizedBox(height: 60),
         ],
       ),
     );
